@@ -2,7 +2,7 @@ package main;
 
 public class Relogio {
 	
-	private int segundo;
+    private int segundo;
     private int minuto;
     private int hora;
     private String intervaloInicio;
@@ -31,4 +31,8 @@ public class Relogio {
     public int getSegundo() {
         return segundo;
     }
-
+    public void reiniciarParaMeiaNoite() {
+        this.hora = 0;
+        this.minuto = 0;
+        this.segundo = 0;
+    }

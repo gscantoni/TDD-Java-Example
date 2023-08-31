@@ -37,3 +37,24 @@ class RelogioTest {
         assertEquals(0, relogio.getMinuto());
         assertEquals(0, relogio.getSegundo());
     }
+    @Test
+    void testMarcaIntervalo() {
+        Relogio relogio = new Relogio();
+        relogio.setHora(12);
+        relogio.setMinuto(0);
+        relogio.setSegundo(0);
+        
+        relogio.marcaIntervalo(1, 30, 0, 2, 0, 0);
+        
+        assertEquals("1:30:00", relogio.getIntervaloInicio());
+        assertEquals("2:00:00", relogio.getIntervaloFim());
+        assertEquals("00:30:00", relogio.getTempoDecorrido());
+    }
+    @Test
+    void testFormato24h() {
+        Relogio relogio = new Relogio();
+        relogio.setHora(15);
+        relogio.setMinuto(45);
+        relogio.setSegundo(0);
+        assertEquals("15:45:00", relogio.getHoraFormato24h());
+    }

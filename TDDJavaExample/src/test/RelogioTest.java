@@ -58,3 +58,12 @@ class RelogioTest {
         relogio.setSegundo(0);
         assertEquals("15:45:00", relogio.getHoraFormato24h());
     }
+    @Test
+    void testFormatoAMPM() {
+        Relogio relogio = new Relogio();
+        relogio.setHora(11);
+        relogio.setMinuto(25);
+        relogio.setSegundo(59);
+        assertEquals("11:25:59 AM", relogio.getHoraFormatoAMPM());
+    }
+}

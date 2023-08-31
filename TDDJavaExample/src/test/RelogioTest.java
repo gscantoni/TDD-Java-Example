@@ -26,3 +26,14 @@ class RelogioTest {
         relogio.setSegundo(50);
         assertEquals(50, relogio.getSegundo());
     }
+    @Test
+    void testReiniciarParaMeiaNoite() {
+        Relogio relogio = new Relogio();
+        relogio.setHora(2);
+        relogio.setMinuto(25);
+        relogio.setSegundo(50);
+        relogio.reiniciarParaMeiaNoite();
+        assertEquals(0, relogio.getHora());
+        assertEquals(0, relogio.getMinuto());
+        assertEquals(0, relogio.getSegundo());
+    }

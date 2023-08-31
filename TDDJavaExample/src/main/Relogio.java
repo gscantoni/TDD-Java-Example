@@ -36,3 +36,41 @@ public class Relogio {
         this.minuto = 0;
         this.segundo = 0;
     }
+     public void marcaIntervalo(int inicioHora, int inicioMinuto, int inicioSegundo, int fimHora, int fimMinuto, int fimSegundo) {
+        this.intervaloInicio = String.format("%d:%02d:%02d", inicioHora, inicioMinuto, inicioSegundo);
+        this.intervaloFim = String.format("%d:%02d:%02d", fimHora, fimMinuto, fimSegundo);
+    }
+
+    public String getIntervaloInicio() {
+        return intervaloInicio;
+    }
+
+    public String getIntervaloFim() {
+        return intervaloFim;
+    }
+
+    public String getTempoDecorrido() {
+    	int inicioSegundosTotal = calcularSegundosTotal(intervaloInicio);
+        int fimSegundosTotal = calcularSegundosTotal(intervaloFim);
+        
+        int segundosDecorridos = fimSegundosTotal - inicioSegundosTotal;
+        
+        int horas = segundosDecorridos / 3600;
+        int minutos = (segundosDecorridos % 3600) / 60;
+        int segundos = segundosDecorridos % 60;
+        
+        return String.format("%02d:%02d:%02d", horas, minutos, segundos);
+    }
+    
+    private int calcularSegundosTotal(String tempo) {
+        String[] partes = tempo.split(":");
+        int horas = Integer.parseInt(partes[0]);
+        int minutos = Integer.parseInt(partes[1]);
+        int segundos = Integer.parseInt(partes[2]);
+        
+        return horas * 3600 + minutos * 60 + segundos;
+    }
+
+    public String getHoraFormato24h() {
+        return String.format("%02d:%02d:%02d", hora, minuto, segundo);
+    }
